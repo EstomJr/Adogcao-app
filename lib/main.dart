@@ -6,7 +6,12 @@ import 'widgets/pet_avatar.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  try {
+    await Firebase.initializeApp();
+    print("Firebase Initialized");
+  } catch (e) {
+    print("Error initializing Firebase: $e");
+  }
   runApp(AdoptionApp());
 }
 
